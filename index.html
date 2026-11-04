@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CGPA Calculator</title>
+  <meta name="description" content="Free SGPA and CGPA calculator for college students on the 10-point grading scale.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>CGPA Calculator</h1>
+    <p class="tagline">Work out your SGPA for a semester, then your overall CGPA. Free, fast, and works on your phone.</p>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" role="tab" aria-selected="true" data-tab="sgpa">SGPA</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="cgpa">CGPA</button>
+  </nav>
+
+  <main>
+    <!-- SGPA section -->
+    <section id="sgpa" class="panel active">
+      <p class="hint">Add each subject, its credits and the grade you got.</p>
+      <div class="table-head">
+        <span>Subject</span><span>Credits</span><span>Grade</span><span></span>
+      </div>
+      <div id="subject-list"></div>
+      <button class="btn-secondary" id="add-subject">+ Add subject</button>
+
+      <div class="result">
+        <div>
+          <span class="result-label">Your SGPA</span>
+          <span class="result-value" id="sgpa-result">0.00</span>
+        </div>
+        <div>
+          <span class="result-label">Total credits</span>
+          <span class="result-value small" id="sgpa-credits">0</span>
+        </div>
+      </div>
+      <button class="btn-primary" id="send-to-cgpa">Add this SGPA to my CGPA</button>
+    </section>
+
+    <!-- CGPA section -->
+    <section id="cgpa" class="panel">
+      <p class="hint">Add the SGPA and total credits for each semester. CGPA is weighted by credits.</p>
+      <div class="table-head">
+        <span>Semester</span><span>Credits</span><span>SGPA</span><span></span>
+      </div>
+      <div id="semester-list"></div>
+      <button class="btn-secondary" id="add-semester">+ Add semester</button>
+
+      <div class="result">
+        <div>
+          <span class="result-label">Your CGPA</span>
+          <span class="result-value" id="cgpa-result">0.00</span>
+        </div>
+        <div>
+          <span class="result-label">Percentage</span>
+          <span class="result-value small" id="percent-result">0.00%</span>
+        </div>
+      </div>
+      <label class="formula">
+        Percentage formula
+        <select id="formula">
+          <option value="aicte">(CGPA - 0.75) x 10 &nbsp;(AICTE)</option>
+          <option value="x10">CGPA x 10</option>
+          <option value="x95">CGPA x 9.5</option>
+        </select>
+      </label>
+      <p class="note">Universities use different conversion rules. Check your own university's official formula before using the percentage anywhere.</p>
+    </section>
+
+    <section class="scale">
+      <h2>Grade scale used</h2>
+      <p>O = 10, A+ = 9, A = 8, B+ = 7, B = 6, C = 5, P = 4, F = 0</p>
+    </section>
+
+    <button class="btn-link" id="reset">Clear everything</button>
+  </main>
+
+  <footer>
+    <p>Built by <a href="https://github.com/vikaskapuganti">Vikas Kapuganti</a>. Free for students, shared with <a href="https://theedumoon.com">EduMoon</a>.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
